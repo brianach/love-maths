@@ -1,3 +1,6 @@
+// Wait for the DOM to finish before loading the game
+// Get the button elements and add event lsiteners to them
+
 function runGame(){
 
 }
