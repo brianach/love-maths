@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
  */
 function runGame(gameType){
 
+    // clear the answer box and set input focus 
     document.getElementById("answer-box").value = "" ;
     document.getElementById("answer-box").focus() ;
 
@@ -41,6 +42,8 @@ function runGame(gameType){
         displaySubtractQuestion(num1, num2);
     } else if (gameType === "multiply") {
         displayMultiplyQuestion(num1, num2);
+    } else if (gameType === "divide") {
+        displayDivideQuestion(num1, num2);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
@@ -85,6 +88,8 @@ function calculateCorrectAnswer(){
         return [operand1 - operand2, "subtract"];
     } else if (operator === "x") {
         return [operand1 * operand2, "multiply"];
+    } else if (operator === String.fromCharCode(247)) {
+        return [operand1 / operand2, "divide"];
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -123,16 +128,27 @@ function displayAdditionQuestion(operand1, operand2){
 
 function displaySubtractQuestion(operand1, operand2){
 
+    // shift the largest number to the left and subtract small from large
     document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2 ;
     document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1 ;
     document.getElementById('operator').textContent = "-";
 
 }
 
-function displayMultiplyQuestion(operand1, operand2 ){
+function displayMultiplyQuestion(operand1, operand2){
 
     document.getElementById('operand1').textContent = operand1;
     document.getElementById('operand2').textContent = operand2;
     document.getElementById('operator').textContent = "x";
+
+}
+
+function displayDivideQuestion(operand1, operand2,){
+
+    //multiply the numbers and print result on left in order to enusure result is a whole number
+    document.getElementById('operand1').textContent = operand1 * operand2;
+    document.getElementById('operand2').textContent = operand2;
+    // use traditional division symbol
+    document.getElementById('operator').textContent = String.fromCharCode(247);
 
 }
