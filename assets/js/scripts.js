@@ -42,8 +42,8 @@ function runGame(gameType){
         displaySubtractQuestion(num1, num2);
     } else if (gameType === "multiply") {
         displayMultiplyQuestion(num1, num2);
-    } else if (gameType === "divide") {
-        displayDivideQuestion(num1, num2);
+    } else if (gameType === "division") {
+        displayDivisionQuestion(num1, num2);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
@@ -89,7 +89,7 @@ function calculateCorrectAnswer(){
     } else if (operator === String.fromCharCode(215)) {
         return [operand1 * operand2, "multiply"];
     } else if (operator === String.fromCharCode(247)) {
-        return [operand1 / operand2, "divide"];
+        return [operand1 / operand2, "division"];
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -143,7 +143,7 @@ function displayMultiplyQuestion(operand1, operand2){
 
 }
 
-function displayDivideQuestion(operand1, operand2,){
+function displayDivisionQuestion(operand1, operand2,){
 
     //multiply the numbers and print result on left in order to enusure result is a whole number
     document.getElementById('operand1').textContent = operand1 * operand2;
