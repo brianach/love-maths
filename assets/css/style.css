@@ -41,6 +41,7 @@ body {
 }
 
 .question-area span {
+    text-transform: lowercase;
     padding: 0 15px;
 }
 
@@ -172,6 +173,10 @@ body {
 .btn--gray:active,
 .btn--gray:hover {
     background-color: #0d1013;
+}
+
+#operator {
+    font-size: smaller;
 }
 
 /* --------- Media queries */
